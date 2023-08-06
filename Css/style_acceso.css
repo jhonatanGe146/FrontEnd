@@ -1,0 +1,218 @@
+/* Estilo global */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;1,200&family=Mulish:ital,wght@0,300;0,400;1,200&family=Oswald:wght@200;600&family=Roboto:wght@100&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+body {
+    background: rgb(133, 128, 128);
+    font-family: 'Mulish', sans-serif;
+}
+
+/* Variables de colores */
+:root {
+    --color1: #071110;
+    --color2: #302b28;
+    --color3: #595e5a;
+    --color4: #939890;
+    --color5: #dad1d4;
+}
+
+/* Estilo Encabezado */
+
+h1 {
+    color: azure;
+    font-size: 46px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Estilo Contenido */
+.contenido {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 20px;
+    height: 900px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    font-size: 18px;
+    text-align: justify;
+}
+
+/* Estilo Menu */
+.menu {
+    height: 50px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: var(--color1);
+    list-style: none;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+ul li {
+    display: inline-block;
+}
+
+ul a {
+    text-decoration: none;
+    color: #dcdce9;
+    padding: 10px 16px;
+    border-radius: 5px;
+    font-size: 17px;
+}
+
+ul li a:hover {
+    background: rgb(8, 4, 42);
+}
+
+/* Estilo Formulario Básico */
+.was-validated {
+    max-width: 70%;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    font: bold 14px sans-serif;
+    text-align: center;
+    border: 2px solid #4c565e;
+}
+
+.entrada {
+    text-align: left;
+    margin-bottom: 22px;
+}
+
+.form-basico #bien {
+    font-size: 25px;
+    color: green;
+}
+
+.form-basico #mal {
+    font-size: 25px;
+    color: red;
+}
+
+.titulo {
+    text-align: center;
+    display: inline-block;
+    color: #4c565e;
+    font-size: 24px;
+    padding: 0 10px 15px;
+    border-bottom: 2px solid rgb(19, 19, 59);
+    margin: 0;
+}
+
+.form-basico .entrada label {
+    display: inline-block;
+    color: #5F5F5F;
+    width: 180px;
+    text-align: left;
+    vertical-align: top;
+    padding: 12px 25px;
+}
+
+.form-basico input[type=text],
+.form-basico input[type=email],
+.form-basico input[type=password] {
+    color: #5f5f5f;
+    width: 240px;
+    box-shadow: 1px 2px 4px 0 rgba(37, 26, 110, 0.08);
+    padding: 12px;
+    border: 1px solid #dbdbdb;
+}
+
+.form-basico input[type=radio],
+.form-basico input[type=checkbox] {
+    box-shadow: none;
+    width: auto;
+}
+
+.form-basico input[type=checkbox] {
+    margin-top: 13px;
+}
+
+.form-basico select {
+    background-color: #ffffff;
+    color: #5f5f5f;
+    max-width: 240px;
+    width: 240px;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    padding: 12px 8px;
+    border: 1px solid #dbdbdb;
+}
+
+.form-basico textarea {
+    color: #5f5f5f;
+    box-sizing: border-box;
+    width: 240px;
+    height: 100px;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    font: normal 13px sans-serif;
+    padding: 12px;
+    border: 1px solid #dbdbdb;
+    resize: vertical;
+}
+
+.opciones {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.opciones div {
+    margin-top: 10px;
+}
+
+.opciones label span {
+    margin-left: 8px;
+    color: #5f5f5f;
+    font-weight: normal;
+}
+
+.opciones input {
+    width: auto;
+}
+
+.was-validated input[type=submit] {
+    display: block;
+    border-radius: 2px;
+    background-color: var(--color1);
+    color: #ffffff;
+    font-weight: bold;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    padding: 14px 22px;
+    border: 0;
+    margin: 40px auto 0;
+    font-size: 15px;
+}
+
+/* Estilo Responsive */
+@media (max-width: 600px) {
+    .was-validated {
+        padding: 20px;
+    }
+
+    img {
+        float: none;
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+        margin: 0 auto 20px;
+    }
+
+
+}
