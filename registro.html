@@ -12,12 +12,81 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+    <script>
+
+        function validarContrasena(contrasena) {
+            const regexMayuscula = /[A-Z]/;
+            const regexMinuscula = /[a-z]/;
+            const regexNumero = /[0-9]/;
+            const regexCaracterEspecial = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+
+            if (
+                contrasena.length >= 8 &&
+                regexMayuscula.test(contrasena) &&
+                regexMinuscula.test(contrasena) &&
+                regexNumero.test(contrasena) &&
+                regexCaracterEspecial.test(contrasena)
+            ) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function validar() {
+            var tipo_hab = document.formulario.opc;
+            var elegido = -1;
+            for (i = 0; i < tipo_hab.length; i++) {
+                if (tipo_hab[i].checked) {
+                    elegido = i;
+                    break; // No necesitas seguir comprobando después de encontrar uno seleccionado
+                }
+            }
+            if (elegido === -1) {
+                swal("Oops!", "No has elegido ningún tipo de cuenta. Elige una opción para continuar.", "error");
+                return false;
+            }
+
+            var opcion = document.formulario.condiciones;
+            if (!opcion.checked) {
+                swal("Oops!", "Debes aceptar las condiciones para poder enviar el formulario.", "error");
+                return false;
+            }
+
+            var tipoCuenta = tipo_hab[elegido].value;
+            swal("Success", "Has elegido el rol: " + tipoCuenta + "\nEl formulario ha sido enviado.", "success");
+            return true;
+        }
+
+        function validarContraseña() {
+            var contrasena = document.getElementById("password").value;
+            if (validarContrasena(contrasena)) {
+                return true;
+            } else {
+                swal("Oops!", "La contraseña debe tener al menos 8 caracteres, incluyendo una mayúscula, una minúscula, un número y un carácter especial", "error");
+                return false;
+            }
+        }
+
+    </script>
+
 </head>
 
 <body>
     <div class="contenido">
-        <form class="was-validated" action="#">
-            <div class="titulo">
+        <form name="formulario" class="was-validated" onsubmit="return validar()  && validarContraseña()">
+            <div class=" titulo">
                 <h2>Registro</h2>
             </div>
             <div class="entrada">
@@ -27,7 +96,7 @@
                         <option value="" disabled selected>Seleccione un tipo de identificación</option>
                         <option value="cc">Cédula de Ciudadanía</option>
                         <option value="ce">Cédula de Extranjería</option>
-                        <!-- Agrega más opciones si es necesario -->
+
                     </select>
                     <div class="invalid-feedback">
                         Seleccione un tipo de identificación
@@ -54,54 +123,57 @@
                     </div>
                 </div>
             </div>
-
             <div class="entrada">
                 <div class="mb-3">
-                    <label for="apellido2" class="form-label">Segundo Apellido</label>
-                    <input type="text" class="form-control" id="apellido2" required>
+                    <label for="validationTextarea" class="form-label">Correo
+                        Electronico</label>
+                    <input type="email" class="form-control" id="validationTextarea" placeholder="Ejemplo@email.com"
+                        required>
+                    <!-- <i class="fa fa-times-circle" aria-hidden="true" id="mal"></i> -->
                     <div class="invalid-feedback">
-                        Ingrese su segundo apellido
-                    </div>
-                </div>
-            </div>
+                        Ingrese su Correo
 
-            <div class="entrada">
-                <div class="mb-3">
-                    <label for="username" class="form-label">Nombre de Usuario</label>
-                    <input type="text" class="form-control" id="username" required>
-                    <div class="invalid-feedback">
-                        Ingrese su nombre de usuario
                     </div>
-                </div>
-            </div>
 
-            <div class="entrada">
-                <div class="mb-3">
-                    <label for="pais" class="form-label">País de Residencia</label>
-                    <select class="form-select" id="pais" required>
-                        <option value="" disabled selected>Seleccione su país de residencia</option>
-                        <option value="colombia">Colombia</option>
-                        <option value="usa">Estados Unidos</option>
-                        <!-- Agrega más opciones si es necesario -->
-                    </select>
-                    <div class="invalid-feedback">
-                        Seleccione su país de residencia
-                    </div>
                 </div>
             </div>
+            <div class="entrada">
+                <label>Selecione el tipo de oficio</label> <br>
+                <div class="opciones">
+                    <div>
+                        <label>
+                            <input type="radio" name="opc" value="Programador">
+                            <span>Programador</span>
+                        </label>
+                    </div>
 
-            <div class="entrada">
-                <div class="mb-3">
-                    <label for="password" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" id="password" required>
-                    <div class="invalid-feedback">
-                        Ingrese su contraseña
+                    <div>
+                        <label>
+                            <input type="radio" name="opc" value="Cliente">
+                            <span>Cliente</span><br>
+                        </label>
+                    </div>
+
+                </div>
+
+                <div class="entrada">
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" id="password" required>
+                        <div class="invalid-feedback">
+                            Ingrese su contraseña
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="boton">
-                <input class="btn" type="submit" value="Enviar">
-            </div>
+                <div class="entrada">
+                    <input name="condiciones" type="checkbox">
+                    <label>Aceptar Terminos y condiciones </label>
+
+                </div>
+
+                <div class="boton">
+                    <input class="btn" type="submit" value="Enviar">
+                </div>
         </form>
     </div>
 
@@ -110,7 +182,6 @@
             <li><a href="index.html">Inicio</a></li>
             <li> <a href="basicos.html">Entradas Basicas</a></li>
             <li> <a href="acceso.html">Iniciar Sesion</a></li>
-            <li> <a href="buscar.html">Buscar</a></li>
             <li> <a href="validar.html">Validacion</a></li>
         </ul>
     </div>

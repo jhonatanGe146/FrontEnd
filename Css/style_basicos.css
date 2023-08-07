@@ -181,7 +181,7 @@ p {
 .form-basico input[type=submit] {
     display: block;
     border-radius: 2px;
-    background-color: rgb(19, 19, 59);
+    background-color: var(--color1);
     color: #ffffff;
     font-weight: bold;
     box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
