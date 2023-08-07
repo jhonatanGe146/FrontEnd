@@ -50,22 +50,27 @@
             for (i = 0; i < tipo_hab.length; i++) {
                 if (tipo_hab[i].checked) {
                     elegido = i;
-                    break; // No necesitas seguir comprobando después de encontrar uno seleccionado
+                    break; // No es necesario seguir comprobando después de encontrar uno seleccionado
                 }
             }
             if (elegido === -1) {
-                swal("Oops!", "No has elegido ningún tipo de cuenta. Elige una opción para continuar.", "error");
+                swal("¡Ups!", "No has elegido ningún tipo de cuenta. Elige una opción para continuar.", "error");
                 return false;
             }
 
             var opcion = document.formulario.condiciones;
             if (!opcion.checked) {
-                swal("Oops!", "Debes aceptar las condiciones para poder enviar el formulario.", "error");
+                swal("¡Ups!", "Debes aceptar las condiciones para poder enviar el formulario.", "error");
                 return false;
             }
 
             var tipoCuenta = tipo_hab[elegido].value;
-            swal("Success", "Has elegido el rol: " + tipoCuenta + "\nEl formulario ha sido enviado.", "success");
+
+
+            setTimeout(function () {
+                swal("Éxito", "Has elegido el rol: " + tipoCuenta + "\nEl formulario ha sido enviado.", "success");
+            }, 500);
+
             return true;
         }
 
