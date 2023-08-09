@@ -43,11 +43,56 @@ h1 {
 }
 
 p {
-    font-size: 18px;
-    text-align: justify;
+    font-size: 15px;
+    text-align: center;
+    padding-top: 10px;
+    text-decoration: none;
+}
+p a {
+    text-decoration: none;
 }
 
-/* Estilo Menu */
+/* Estilo Redes Sociales */
+/* Estilo Redes Sociales */
+.redes {
+    text-align: center;
+    margin-top: 20px;
+}
+.redes i {
+    font-size: 24px;
+    color: var(--color1);
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.social-link {
+    display: inline-block;
+    margin: 0 10px;
+    color: var(--color1);
+    font-size: 24px;
+    transition: color 0.3s;
+}
+
+.social-link:hover {
+    color: #333; /* Cambia el color al pasar el mouse */
+}
+
+/* Cambia el color y el tamaño de los iconos de las redes sociales según tus preferencias */
+.social-link .fa-facebook {
+    color: #3b5998;
+}
+
+.social-link .fa-google {
+    color: #db4a39;
+}
+
+.social-link .fa-microsoft {
+    color: #00a4ef;
+}
+
+
+
+
 .menu {
     height: 50px;
     width: 100%;

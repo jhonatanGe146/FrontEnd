@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesion</title>
-    <link rel="icon" href="img/logo.png">
-    <link rel="stylesheet" href="/Css/style_acceso.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Iniciar Sesion</title>
+        <link rel="icon" href="img/logo.png">
+        <link rel="stylesheet" href="/Css/style_acceso.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+            integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+            crossorigin="anonymous">
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    <script>
+        <script>
         function bienvenido() {
             swal({
                 title: "Bienvenido",
@@ -26,47 +29,63 @@
             return true; // Permitir el envío del formulario después de mostrar la ventana emergente
         }
     </script>
-</head>
+    </head>
 
-<body>
-    <div class="contenido">
-        <form class="was-validated" action="#" onsubmit="return bienvenido()">
-            <div class="titulo">
-                <h2>Iniciar Sesion</h2>
-            </div>
-            <div class="entrada">
-                <div class="mb-3">
-                    <label for="validationTextarea" class="form-label">Correo Electronico</label>
-                    <input type="email" class="form-control" id="validationTextarea" placeholder="Ejemplo@email.com"
-                        required>
-                    <div class="invalid-feedback">
-                        Ingrese su Correo
+    <body>
+        <div class="contenido">
+            <form class="was-validated" action="#"
+                onsubmit="return bienvenido()">
+                <div class="titulo">
+                    <h2>Iniciar Sesion</h2>
+                </div>
+                <div class="entrada">
+                    <div class="mb-3">
+                        <label for="emailInput" class="form-label">Correo
+                            Electrónico</label>
+                        <input type="email" class="form-control" id="emailInput"
+                            placeholder="Ejemplo@email.com" required>
+                        <div class="invalid-feedback">
+                            Por favor ingrese su correo electrónico.
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="entrada">
-                <div class="mb-3">
-                    <label for="validationTextarea" class="form-label">Password</label>
-                    <input type="Password" class="form-control" id="validationTextarea" required>
-                    <div class="invalid-feedback">
-                        Ingrese su contraseña
+                <div class="entrada">
+                    <div class="mb-3">
+                        <label for="passwordInput" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control"
+                            id="passwordInput" required>
+                        <div class="invalid-feedback">
+                            Por favor ingrese su contraseña.
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="boton">
-                <input class="btn" type="submit" value="Enviar">
-            </div>
-        </form>
-    </div>
+                <div class="boton">
+                    <input class="btn" type="submit" value="Enviar">
+                </div>
+                <p>¿No tienes una cuenta? <a href="registro.html">Regístrate</a></p>
+                <div class="redes">
+                    <a
+                        href="https://m.facebook.com/login/?locale=es_LA&refsrc=deprecated"
+                        class="social-link"><i class="fa-brands fa-facebook"></i></a>
+                    <a
+                        href="https://accounts.google.com/InteractiveLogin/identifier?continue=https%3A%2F%2Fmail.google.com%2Fmail%2Fu%2F0%2F&emr=1&followup=https%3A%2F%2Fmail.google.com%2Fmail%2Fu%2F0%2F&osid=1&passive=1209600&service=mail&ifkv=AXo7B7XAn61-KmeZsQ5WN4wVbxZ7Hxugzxz9ibWoxEMlTlsp2yF96R0C4IeaQuSDLd8PYn4GIl7UWw&flowName=GlifWebSignIn&flowEntry=ServiceLogin"
+                        class="social-link"><i class="fa-brands fa-google"></i></a>
+                    <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=4765445b-32c6-49b0-83e6-1d93765276ca&redirect_uri=https%3A%2F%2Fwww.office.com%2Flandingv2&response_type=code%20id_token&scope=openid%20profile%20https%3A%2F%2Fwww.office.com%2Fv2%2FOfficeHome.All&response_mode=form_post&nonce=638213187692786253.ZWU5YTA5MjQtNWQwYS00MmUxLThhYTAtMDA5NTI4NjA4ODJjYzc0YTg4MGYtMmYzZC00YTY2LTgwODItY2Y3Mjg2NmUxODUx&ui_locales=es-ES&mkt=es-ES&client-request-id=059ae150-cf3d-4248-9922-d23150e28689&prompt=select_account&state=kR10F-SgscmYNQsK_0z55nQuMfUPBFXMT8OPMG6qiwium2DRfYXZVZHZQA8DYgRldGnnBculfPzm2W5JN0hon7KaaBkTnDdV6QtY6rnwBA5Anda_lhINel-Q48pp8-nQeP61zch6vBbFFc5_RxEU_8PH1rOErDEyYfUay96fcVVtGdsyhZBWFLLLOcqAkdsx82jPculHudyUe1eNNO7HXWvlB6i9x7XJZzfyoqBBYeklW2WZpdc2qmTxmlZQjymMBtvxbwEOBIIRNbWAOZab-BfrKlGhcCKZWT8t-xtCfvEVlcd5mOdxpBL-Zee-uas_Zorz466J52uTXcu_LDkCWA&x-client-SKU=ID_NET6_0&x-client-ver=6.26.1.0&sso_reload=true" class="social-link"><i
+                            class="fa-brands fa-microsoft"></i></a>
+                </div>
 
-    <div class="menu">
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li> <a href="basicos.html">Entradas Basicas</a></li>
-            <li> <a href="registro.html">Registro</a></li>
-            <li> <a href="validar.html">Validacion</a></li>
-        </ul>
-    </div>
-</body>
+            </form>
+
+        </div>
+
+        <div class="menu">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li> <a href="basicos.html">Entradas Basicas</a></li>
+                <li> <a href="registro.html">Registro</a></li>
+                <li> <a href="validar.html">Validacion</a></li>
+            </ul>
+        </div>
+    </body>
 
 </html>

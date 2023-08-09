@@ -11,51 +11,46 @@
         document.addEventListener("DOMContentLoaded", function () {
             const searchInput = document.getElementById("search-input");
             const suggestionsContainer = document.getElementById("suggestions");
+            const sections = document.querySelectorAll(".contenido > div");
 
             const sugerencias = [
-                "Aplicaciones móviles",
-                "Sistemas de gestión de contenido (CMS)",
-                "Plataformas de comercio electrónico",
-                "Sistemas de gestión empresarial (ERP)",
-                "Juegos en línea",
-                "Aplicaciones de redes sociales",
-                "Herramientas de análisis de datos",
-                "Sistemas de reserva en línea",
-                "Sistemas de educación en línea",
-                "Herramientas de productividad",
-                "Plataformas de streaming de video",
-                "Aplicaciones de realidad aumentada",
-                "Sistemas de salud electrónica",
-                "Plataformas de colaboración en equipo",
-                "Herramientas de automatización de procesos",
-                "Sistemas de seguimiento de proyectos",
-                "Plataformas de telemedicina",
-                "Aplicaciones de gestión de finanzas personales",
-                "Herramientas de control de versiones",
-                "Plataformas de aprendizaje automático"
+                "Aplicaciones Móviles",
+                "Juegos en Línea",
+                "Sistemas de Reserva en Línea"
             ];
-
 
             searchInput.addEventListener("input", function () {
                 const searchTerm = searchInput.value.toLowerCase();
-                const filteredSuggestions = sugerencias.filter(suggestion =>
-                    suggestion.toLowerCase().includes(searchTerm)
-                );
 
                 suggestionsContainer.innerHTML = "";
 
-                filteredSuggestions.forEach(suggestion => {
-                    const suggestionElement = document.createElement("div");
-                    suggestionElement.classList.add("suggestion");
-                    suggestionElement.textContent = suggestion;
+                if (searchTerm.length > 0) {
+                    const matchingSections = [];
 
-                    suggestionElement.addEventListener("click", function () {
-                        searchInput.value = suggestion;
-                        suggestionsContainer.innerHTML = "";
+                    sections.forEach((section) => {
+                        const sectionTitle = section.querySelector("h2").textContent.toLowerCase();
+                        if (sectionTitle.includes(searchTerm)) {
+                            matchingSections.push(section);
+                        }
                     });
 
-                    suggestionsContainer.appendChild(suggestionElement);
-                });
+                    matchingSections.forEach((section) => {
+                        const suggestion = document.createElement("div");
+                        suggestion.textContent = section.querySelector("h2").textContent;
+                        suggestion.classList.add("suggestion");
+                        suggestion.addEventListener("click", function () {
+                            sections.forEach((s) => {
+                                s.style.display = "none";
+                            });
+                            section.style.display = "block";
+                        });
+                        suggestionsContainer.appendChild(suggestion);
+                    });
+                } else {
+                    sections.forEach((section) => {
+                        section.style.display = "block";
+                    });
+                }
             });
         });
     </script>
@@ -71,8 +66,15 @@
         </div>
         <div class="izqui">
             <div class="search-bar">
-                <input type="text" id="search-input" placeholder="Buscar...">
-                <button type="button"><i class="fas fa-search"></i></button>
+                <form id="search-form">
+                    <select id="search-input">
+                        <option value="">Selecciona una opción...</option>
+                        <option value="Aplicaciones Móviles">Aplicaciones Móviles</option>
+                        <option value="Juegos en Línea">Juegos en Línea</option>
+                        <option value="Sistemas de Reserva en Línea">Sistemas de Reserva en Línea</option>
+                    </select>
+                    <button type="button"><i class="fas fa-search"></i></button>
+                </form>
             </div>
             <div id="suggestions" class="suggestions"></div>
 
@@ -81,17 +83,68 @@
     </header>
 
     <div class="contenido">
-        <p><img src="/Imgs/form.webp" alt="img-form">Explora el vasto universo de la programación libre aqui en FREE
+        <p><img src="/Imgs/form.webp" alt="img-form">Explora el vasto
+            universo de la programación libre aqui en FREE
             PROGRAMMER,
             donde las
-            líneas de código se convierten en puentes hacia la creatividad sin restricciones. Únete a
-            nuestra comunidad apasionada y descubre cómo la colaboración y la innovación se fusionan para dar vida a
-            proyectos que cambian el mundo. Desde el corazón del software de código abierto hasta las fronteras del
-            conocimiento compartido, en FREE PROGRAMMER, cada línea de código es un paso hacia un futuro donde la
-            tecnología y la libertad se entrelazan en armonía</p>
+            líneas de código se convierten en puentes hacia la creatividad
+            sin restricciones. Únete a
+            nuestra comunidad apasionada y descubre cómo la colaboración y
+            la innovación se fusionan para dar vida a
+            proyectos que cambian el mundo. Desde el corazón del software de
+            código abierto hasta las fronteras del
+            conocimiento compartido, en FREE PROGRAMMER, cada línea de
+            código es un paso hacia un futuro donde la
+            tecnología y la libertad se entrelazan en armonía</p><br>
+
+        <div class="app">
+            <h2>Aplicaciones Móviles</h2>
+            <p>Las aplicaciones móviles son programas diseñados para
+                funcionar en dispositivos como smartphones y
+                tabletas. Ofrecen una variedad de funciones, desde
+                redes sociales hasta productividad, juegos y más.
+                Estas apps son descargables desde tiendas en línea y
+                se adaptan a las preferencias de los usuarios,
+                mejorando la productividad y la comunicación. Sin
+                embargo, también plantean desafíos en términos de
+                privacidad y competencia en el mercado. En general,
+                las aplicaciones móviles han transformado cómo
+                trabajamos, nos entretenemos y nos conectamos en un
+                mundo digital en constante evolución.</p>
+        </div>
+
+        <div class="juegos">
+            <h2>Juegos en Línea</h2>
+            <p>Los juegos en línea son videojuegos que se juegan a
+                través de Internet, permitiendo que los jugadores
+                interactúen en tiempo real desde diferentes
+                ubicaciones. Esto crea comunidades virtuales donde
+                los jugadores pueden competir, colaborar y
+                socializar. Hay una amplia variedad de géneros, como
+                disparos, rol, estrategia y deportes electrónicos
+                (eSports). Aunque ofrecen diversión y competencia,
+                también presentan desafíos como el comportamiento
+                negativo en línea y la adicción. En general, los
+                juegos en línea han transformado la forma en que
+                jugamos y nos conectamos en la era digital.</p>
+        </div>
+
+        <div class="reserva">
+            <h2>Sistemas de Reserva en Línea</h2>
+            <p>Los sistemas de reserva en línea son plataformas
+                digitales que permiten a los usuarios reservar y
+                programar citas, servicios o productos a través de
+                Internet. Estos sistemas simplifican el proceso de
+                programación al eliminar la necesidad de llamadas
+                telefónicas o visitas presenciales. Los usuarios
+                pueden acceder a estos sistemas en cualquier momento
+                y desde cualquier lugar, seleccionar las fechas y
+                horarios disponibles, y recibir confirmaciones
+                automáticas. Esto beneficia a empresas y usuarios al
+                mejorar la eficiencia y la comodidad en la gestión
+                de reservas.</p>
+        </div>
     </div>
-
-
 
     <div class="menu">
         <ul>

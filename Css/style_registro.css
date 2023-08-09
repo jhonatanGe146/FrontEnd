@@ -43,9 +43,15 @@ h1 {
 }
 
 p {
-    font-size: 18px;
-    text-align: justify;
+    font-size: 15px;
+    text-align: center;
+    padding-top: 10px;
+    text-decoration: none;
 }
+p a {
+    text-decoration: none;
+}
+
 
 /* Estilo Menu */
 .menu {
