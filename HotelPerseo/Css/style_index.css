@@ -153,15 +153,69 @@ nav {
 }
 
 
+.todo{
+    width: 100%;
+    display: flex;
+}
 
-.articulo {
+.articulo .todo .cont_principal {
     display: table-cell;
     width: 900px;
     column-count: 2;
     column-gap: 50px;
     font-size: 20px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding-right: 50px;
 }
+
+
+.todo .cont_principal{
+    width: 70%;
+}
+
+.todo .cont_lateral{
+    width: 30%;
+
+
+}
+
+.todo aside img{
+    margin: 30px 0 30px 70px;
+    width: 70%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+
+}
+
+.todo aside ul{
+    list-style: none;
+    text-align: justify;
+}
+.todo aside li a{
+    text-decoration: none;
+    margin-left: 40px;
+}
+
+.todo aside a:hover{
+    color: #39A900;
+}
+.todo aside a{
+    font-style: 'Oswald', sans-serif;
+    color: rgb(0, 0, 0);
+    text-align: justify;
+}
+
+.todo aside h3 {
+    font-size: 20px;
+    color: #000000;
+    margin-top: 20px;
+    padding-left: 60px;
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+}
+
 
 .titulo2 {
     font-size: 30px;
@@ -319,3 +373,88 @@ button {
     cursor: pointer;
     border: none;
 }
+
+/* Estilos Footer */
+footer {
+    margin-top: 50px;
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    /* Centra horizontalmente */
+    transform: translateX(-50%);
+    /* Centra horizontalmente */
+    width: 100%;
+    font-family: 'Victor Mono', monospace;
+}
+
+
+.pie_pag{
+    /* width: 100%; */
+    display: table;
+    background-color: #858484;
+    position: absolute;
+    padding-bottom: 8px;
+
+}
+
+.pie_pag section{
+    display: table-cell;
+    width: 20%;
+    /* text-align: center; */
+    padding-left: 90px;
+    position: relative;
+
+}
+.pie_pag  section h3{
+    color: #ffffff;
+    text-align: justify;
+}
+.pie_pag section p {
+    text-align: justify;
+
+}
+
+
+.pie_pag section a {
+    text-align: justify;
+    color: #000;
+
+}
+
+.pie_pag section ul {
+    list-style: none;
+    text-align: justify;
+}
+
+.pie_pag a:hover{
+    color: #39A900;
+}
+
+.redes i{
+    margin-top: 10px;
+    font-size: 30px;
+    padding-right: 10px;
+    padding-left: 50px;
+}
+
+
+
+/* Aplicar estilos en dispositivos móviles con un ancho máximo de 876px para el footer y el menú */
+@media (max-width: 876px) {
+    .pie_pag {
+        position: static; /* Cambiar la posición a estática para que ocupen todo el ancho */
+        transform: none; /* Reiniciar la transformación */
+        left: 0; /* Alinear al borde izquierdo */
+        width: 100%; /* Hacer que ocupen todo el ancho */
+    }
+}
+
+
+/* Aplicar estilos en dispositivos móviles con un ancho máximo de 876px para el menú */
+@media (max-width: 876px) {
+    .navegacion {
+        position: static; /* Cambiar la posición a estática para que ocupe todo el ancho */
+        transform: none; /* Reiniciar la transformación */
+        width: 100%; /* Hacer que ocupe todo el ancho */
+        text-align: center; /* Centrar el contenido del menú */
+    }}
